@@ -1,3 +1,4 @@
+import React from 'react';
 import useRouter from '../hooks/useRouter';
 
 const About = () => {
