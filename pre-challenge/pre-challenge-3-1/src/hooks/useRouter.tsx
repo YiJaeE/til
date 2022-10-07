@@ -1,5 +1,7 @@
 function useRouter() {
   const pathChange = (path: string) => {
+    console.log('change');
+
     window.location.pathname = path;
   };
 
