@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ReactNode } from 'react';
-import useRouter from '../hooks/useRouter';
+import Context from '../context/Context';
 
 type ChildrenProps = {
   children: ReactNode;
 };
 
 const Router = ({ children }: ChildrenProps) => {
-  const { pathChange } = useRouter();
+  const { pathname } = window.location;
 
-  window.addEventListener('popstate', () =>
-    pathChange(window.location.pathname)
+  const [currentPath, setCurrentPath] = useState(pathname);
+
+  window.addEventListener('popstate', () => setCurrentPath(pathname));
+
+  return (
+    <Context.Provider value={{ currentPath, pathChange: setCurrentPath }}>
+      {children}
+    </Context.Provider>
   );
-
-  return <>{children}</>;
 };
 
 export default Router;

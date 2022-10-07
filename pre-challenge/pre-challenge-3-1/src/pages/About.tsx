@@ -2,17 +2,12 @@ import React from 'react';
 import useRouter from '../hooks/useRouter';
 
 const About = () => {
-  const { push } = useRouter();
-
-  const aboutRoot = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    push('/');
-  };
+  const { click } = useRouter();
 
   return (
     <div>
       <div className="current-location">about</div>
-      <button onClick={aboutRoot}>go main</button>
+      <button onClick={(e) => click(e, '/')}>go main</button>
     </div>
   );
 };

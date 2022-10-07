@@ -1,16 +1,23 @@
-function useRouter() {
-  const pathChange = (path: string) => {
-    console.log('change');
+import { useContext } from 'react';
+import Context from '../context/Context';
 
-    window.location.pathname = path;
-  };
+function useRouter() {
+  const { currentPath, pathChange } = useContext(Context);
 
   const push = (path: string) => {
     window.history.pushState({}, '', path);
-    pathChange(path);
+
+    if (path !== currentPath) {
+      pathChange(path);
+    }
   };
 
-  return { push, pathChange };
+  const click = (e: { preventDefault: () => void }, path: string) => {
+    e.preventDefault();
+    push(path);
+  };
+
+  return { push, click };
 }
 
 export default useRouter;
