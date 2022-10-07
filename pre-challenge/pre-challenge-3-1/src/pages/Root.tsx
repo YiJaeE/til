@@ -7,7 +7,7 @@ const Root = () => {
   return (
     <div>
       <div className="current-location">root</div>
-      <button onClick={(e) => click(e, '/about')}>about</button>
+      <button onClick={click}>about</button>
     </div>
   );
 };

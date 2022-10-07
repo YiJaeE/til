@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ReactNode } from 'react';
 import Context from '../context/Context';
 

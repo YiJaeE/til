@@ -1,6 +1,11 @@
 import { useContext } from 'react';
 import Context from '../context/Context';
 
+export const routePath = [
+  { text: 'go main', path: '/' },
+  { text: 'about', path: '/about' },
+];
+
 function useRouter() {
   const { currentPath, pathChange } = useContext(Context);
 
@@ -12,9 +17,12 @@ function useRouter() {
     }
   };
 
-  const click = (e: { preventDefault: () => void }, path: string) => {
+  const click = (e: { preventDefault: () => void; target: any }) => {
     e.preventDefault();
-    push(path);
+    const $target = e.target;
+    const text = $target.textContent;
+    const pathText = routePath.find((route) => route.text === text);
+    push(pathText!.path);
   };
 
   return { push, click };

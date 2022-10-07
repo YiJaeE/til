@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div>
       <div className="current-location">about</div>
-      <button onClick={(e) => click(e, '/')}>go main</button>
+      <button onClick={click}>go main</button>
     </div>
   );
 };
