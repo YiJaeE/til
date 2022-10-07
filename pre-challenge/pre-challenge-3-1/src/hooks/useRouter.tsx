@@ -17,12 +17,17 @@ function useRouter() {
     }
   };
 
+  const componentText = (target: { textContent: string }) => {
+    const text = target.textContent;
+    const pathText = routePath.find((route) => route.text === text);
+    return pathText?.path;
+  };
+
   const click = (e: { preventDefault: () => void; target: any }) => {
     e.preventDefault();
     const $target = e.target;
-    const text = $target.textContent;
-    const pathText = routePath.find((route) => route.text === text);
-    push(pathText!.path);
+    const path = componentText($target)!;
+    push(path);
   };
 
   return { push, click };
