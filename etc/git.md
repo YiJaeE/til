@@ -105,7 +105,7 @@ git merge 파일명
 
 ```shell
 brew install git-flow-avh
-pm의 깃을 folk하고 clone
+pm의 깃을 folk 하고 clone
 
 cd clone한 깃 폴더
 git branch -r
